@@ -46,6 +46,7 @@ class Register extends Component{
 		console.log(this.props.auth);
 		return(
 			<Form horizontal onSubmit={this.handleSubmit}>
+				<h1 className='bg'></h1>
 	        <FormGroup controlId="formHorizontalName" validationState={this.state.nameError}>
 	            <Col componentClass={ControlLabel} sm={2}>
 	                Name

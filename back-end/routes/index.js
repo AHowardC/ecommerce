@@ -5,6 +5,7 @@ var config = require('../config/config');
 var connection = mysql.createConnection(config)
 connection.connect();
 
+
 router.post('/register', (req,res,next)=>{
 	console.log(req.body);
 	// res.json(req.body);

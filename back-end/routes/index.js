@@ -160,5 +160,11 @@ router.post('/register', (req,res,next)=>{
 	)
 })
 
+router.get('/productlines/get', (req, res, next)=>{
+	res.json({
+		msg: 'it works!'
+	})
+});
+
 
 module.exports = router;

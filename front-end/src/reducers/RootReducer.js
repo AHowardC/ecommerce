@@ -5,7 +5,7 @@
 // or the entire application state.
 
 // In order to get all the "little" reducers or peices of state
-// into one big, "root" reducer, we need teh combineReducers method from redux
+// into one big, "root" reducer, we need the combineReducers method from redux
 import { combineReducers } from 'redux';
 
 // Import each individual reducer to hand to combineReducers

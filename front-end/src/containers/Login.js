@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Form, FormGroup, ControlLabel, FormControl, Button, Col ,MenuItem} from 'react-bootstrap'
 // this is a container that knows abotu redux so...
 import {connect} from 'react-redux';
-// we need bindActionCreators because we have redux actions that will dispatch
+// I need bindActionCreators because I have redux actions that will dispatch
 import {bindActionCreators} from 'redux';
 import LoginAction from '../actions/LoginAction';
 
@@ -12,10 +12,10 @@ class Login extends Component{
     this.state = {
       error: ""
     }
-    // if we need to use "this" in a non-lifecycle method (one we created 
+    // if we need to use "this" in a non-lifecycle method (one we created
     // such as handleSubmit) we have to bind the method
     this.handleSubmit = this.handleSubmit.bind(this);
-  } 
+  }
 
   componentWillReceiveProps(newProps){
   if(newProps.auth.msg === "wrongPassword"){

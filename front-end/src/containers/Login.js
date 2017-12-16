@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Form, FormGroup, ControlLabel, FormControl, Button, Col ,MenuItem} from 'react-bootstrap'
-// this is a container that knows abotu redux so...
+// this is a container that knows about redux so...
 import {connect} from 'react-redux';
 // I need bindActionCreators because I have redux actions that will dispatch
 import {bindActionCreators} from 'redux';
@@ -12,8 +12,8 @@ class Login extends Component{
     this.state = {
       error: ""
     }
-    // if we need to use "this" in a non-lifecycle method (one we created
-    // such as handleSubmit) we have to bind the method
+    // if I need to use "this" in a non-lifecycle method (one I created
+    // such as handleSubmit) I have to bind the method
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 

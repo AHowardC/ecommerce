@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 // I need bindActionCreators because I have redux actions that will dispatch
 import {bindActionCreators} from 'redux';
 import LoginAction from '../actions/LoginAction';
+// containers are smart components that use this
 
 class Login extends Component{
   constructor(){

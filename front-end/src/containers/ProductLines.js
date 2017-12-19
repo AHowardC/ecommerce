@@ -19,7 +19,7 @@ class ProductLines extends Component{
 		const url = `${window.apiHost}/productlines/${pl}/get`;
 		axios.get(url)
 		.then((response)=>{
-			console.log(response);
+			// console.log(response);
 			this.setState({
 				productList: response.data
 			})
@@ -31,13 +31,15 @@ class ProductLines extends Component{
 	}
 
 	componentWillReceiveProps(nextProps){
+		console.log(nextProps.match.params.productLine);
+		console.log(this.props.match.params.productLine);
 		this.getProducts(nextProps);
 	}
 
 	render(){
 		// console.log(this.props);
 		// console.log(this.props.pl)
-		console.log(this.state.productList);
+		// console.log(this.state.productList);
 		const products = this.state.productList.map((product,index)=>{
 			return (
 				<ProductRow
@@ -54,7 +56,7 @@ class ProductLines extends Component{
 		if(thisPL.length === 0){
 			var desc = ""
 		}else{
-			var desc = thisPL[0].textDescription
+			desc = thisPL[0].textDescription
 		}
 
 		return(

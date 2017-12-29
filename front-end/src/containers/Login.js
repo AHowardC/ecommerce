@@ -19,19 +19,19 @@ class Login extends Component{
   }
 
   componentWillReceiveProps(newProps){
-	if(newProps.auth.msg === "wrongPassword"){
-		this.setState({
-			error: "This password does not match."
-		});
-	}else if(newProps.auth.msg === "badUser"){
-		this.setState({
-			error: "We do not have an account for this email address."
-		})
-	}else if(newProps.auth.msg === "loginSuccess"){
-		this.props.getCart(newProps.auth.token);
-		// usr has logged in. Move them on
-		newProps.history.push('/');
-	}
+  	if(newProps.auth.msg === "wrongPassword"){
+  		this.setState({
+  			error: "This password does not match."
+  		});
+  	}else if(newProps.auth.msg === "badUser"){
+  		this.setState({
+  			error: "We do not have an account for this email address."
+  		})
+  	}else if(newProps.auth.msg === "loginSuccess"){
+  		this.props.getCart(newProps.auth.token);
+  		// usr has logged in. Move them on
+  		newProps.history.push('/');
+  	}
   }
 
   handleSubmit(event){

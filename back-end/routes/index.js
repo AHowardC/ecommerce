@@ -306,7 +306,8 @@ router.post('/stripe',(req, res, next)=>{
 	const userToken = req.body.userToken;
 	console.log(userToken);
 	const stripeToken = req.body.stripeToken;
-	const amount = req.body.amount;
+	const amount = Math.floor(req.body.amount);
+	console.log(amount)
 	// stripe module required above, is associated with our secretkey.
 	// it has a charges object which has multiple methods.
 	// the one we want, is create.
@@ -322,6 +323,8 @@ router.post('/stripe',(req, res, next)=>{
 	(error, charge)=>{
 		// stripe, when the charge has been run,
 		// runs this callback, and sends it any errors, and the charge object
+
+
 		if(error){
 			res.json({
 				msg: error
@@ -334,23 +337,48 @@ router.post('/stripe',(req, res, next)=>{
 				INNER JOIN products ON cart.productCode = products.productCode
 				WHERE token = ?
 				GROUP BY cart.productCode`
-			console.log(userToken)
-			console.log(getUserQuery);
+
+
 			connection.query(getUserQuery, [userToken], (error2, results2)=>{
 				if(error2){
 					throw error2; //halt everything/dev only
 				}
 				const customerId = results2[0].cid;
+				var formattedDate = new Date()
+				var now = new Date();
+
+var year = now.getFullYear();
+var month = now.getMonth() + 1;
+if(month.length == 1){
+  month = '0' + month
+}
+
+var day = now.getDate()
+if(day.length == 1) {
+  day = '0' + day
+}
+
+
+
+
+var formattedDate = year + '-' + month + '-' + day;
+
+
+
+
+
 				const insertIntoOrders = `INSERT INTO orders
 					(orderDate,requiredDate,comments,status,customerNumber)
 					VALUES
 					(?,?,'Website Order','Paid',?)`
-					connection.query(insertIntoOrders,[Date.now(),Date.now(),customerId],(error3,results3)=>{
+					connection.query(insertIntoOrders,[formattedDate, formattedDate, customerId],(error3,results3)=>{
 						// console.log(results3)
 						if(error3){
 							throw error3;
 						}
 						const newOrderNumber = results3.insertId;
+						console.log(newOrderNumber)
+						console.log('=======================');
 						// results2 (the select query above) contains an array of rows.
 						// Each row has the uid, the productCOde, and the price
 						// map through this array, and add each one to the orderdetails tabl

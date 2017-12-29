@@ -21,7 +21,7 @@ class Cart extends Component{
             	console.log(token);
             	console.log(this.props.auth.token);
                 var theData = {
-                    amount: this.props.cart.totalPrice * 100,
+                    amount: Math.floor(this.props.cart.totalPrice * 100),
                     stripeToken: token.id,
                     userToken: this.props.auth.token,
                 }

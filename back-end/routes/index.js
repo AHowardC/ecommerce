@@ -6,7 +6,7 @@ var stripe = require('stripe')(config.stripeKey);
 var connection = mysql.createConnection(config)
 connection.connect();
 
-// include bcrpyt for hasing and checking password
+// include bcrpyt for hashing and checking password
 var bcrypt = require('bcrypt-nodejs');
 // include rand-token for generating a random token
 var randToken = require('rand-token');

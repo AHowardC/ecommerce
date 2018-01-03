@@ -141,8 +141,8 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-	// dispatch is teh thing that takes any action
-	// and sends it out to all teh reducers
+	// dispatch is the thing that takes any action
+	// and sends it out to all the reducers
 	return bindActionCreators({
 		authAction: AuthAction
 	}, dispatch)

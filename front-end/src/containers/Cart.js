@@ -16,7 +16,7 @@ class Cart extends Component{
         var handler = window.StripeCheckout.configure({
             key: 'pk_test_n3xk4LzSx1zL55FGpi4cUb31',
             locale: 'auto',
-            image: 'http://www.digitalcrafts.com/sites/all/themes/digitalcrafts/images/digitalcrafts-site-logo.png',
+            image: 'https://s4.aconvert.com/convert/p3r68-cdx67/h4ct8-rkypk.png',
             token: (token) => {
             	console.log(token);
             	console.log(this.props.auth.token);

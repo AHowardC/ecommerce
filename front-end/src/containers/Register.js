@@ -23,7 +23,7 @@ class Register extends Component{
 			// We have the token and name safely in the auth reducer.
 			// Move them to the home page.
 			this.props.history.push('/');
-			// line above: tell teh router to move them forward to /
+			// line above: tell the router to move them forward to /
 		}else if(newProps.auth.msg === "userExists"){
 			this.setState({
 				error: "This email address is already registered. Please login or use a different email."
@@ -58,7 +58,7 @@ class Register extends Component{
 	render(){
 		// console.log(this.props.auth);
 		if(this.state.type === "error"){
-			// var msgClass = "text-dagner"
+			// var msgClass = "text-danger"
 		}
 		return(
 			<Form horizontal onSubmit={this.handleSubmit}>

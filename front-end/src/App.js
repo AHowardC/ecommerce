@@ -30,6 +30,7 @@ class App extends Component {
               <Route exact path ="/logout" component={Logout} />
             </div>
           </div>
+
           
         </div>
 
